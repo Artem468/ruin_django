@@ -57,10 +57,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'ruin_django.urls'
 
+FRONTEND = os.path.join(BASE_DIR, 'ruin_web', 'dist')
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'ruin_web', 'dist')]
+        'DIRS': [FRONTEND]
         ,
         'APP_DIRS': True,
         'OPTIONS': {

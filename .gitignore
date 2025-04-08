@@ -18,7 +18,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 .idea
-.env
+
 images/
 ruin_web/
 # C extensions

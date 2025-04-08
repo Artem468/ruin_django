@@ -73,14 +73,14 @@ class Point(models.Model):
 
 class Entry(models.Model):
     scheduled_tour = models.ForeignKey(ScheduledTour, on_delete=models.CASCADE, verbose_name="Запланированный тур")
-    telegram_id = models.BigIntegerField(verbose_name="Telegram ID")
+    telegram_id = models.BigIntegerField(verbose_name="Telegram ID", null=True, default=None)
     name = models.CharField(max_length=255, verbose_name="Имя")
     email = models.EmailField(verbose_name="Почта")
     phone = models.CharField(max_length=20, verbose_name="Телефон")
     is_need_lunch = models.BooleanField(verbose_name="Обед")
     is_need_notify = models.BooleanField(verbose_name="Уведомление")
     count_members = models.IntegerField(verbose_name="Количество человек")
-    comment = models.TextField(null=True, blank=True, default=None, verbose_name="Отзыв / комментарий")
+    comment = models.TextField(null=True, blank=True, default=None, verbose_name="Комментарий")
 
     def __str__(self):
         return f"{self.name} — {self.scheduled_tour}"

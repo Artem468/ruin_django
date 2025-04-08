@@ -21,22 +21,21 @@ from django.urls import path, re_path, include
 from django.views.static import serve
 
 from core import views
-from ruin_django.settings import BASE_DIR
+from ruin_django.settings import FRONTEND
 
 urlpatterns = [
     path('api/v1/', include('core.urls')),
     path('admin/', admin.site.urls),
-    # re_path(r'', views.front, name='front'),
-    re_path(r'^guides/?$', views.front, name='front'),
-    re_path(r'^gallery/?$', views.front, name='front'),
-    re_path(r'^tour/<int:id>?$', views.front, name='front'),
     re_path(r'assets/(?P<path>.*)$', serve,
             {
                 'document_root': os.path.join(
-                    BASE_DIR,
-                    'frontend',
-                    'dist',
+                    FRONTEND,
                     'assets'
                 )
-            })
+            }),
+    re_path(r'^guides/?$', views.front, name='front'),
+    re_path(r'^gallery/?$', views.front, name='front'),
+    re_path(r'^tour/<int:id>?$', views.front, name='front'),
+    re_path(r'', views.front, name='front'),
+
 ]
