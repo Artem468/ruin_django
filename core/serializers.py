@@ -29,6 +29,14 @@ class PointSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class TourWithPointsDataSerializer(serializers.ModelSerializer):
+    points = PointSerializer(many=True, source='point_set')
+
+    class Meta:
+        model = Tour
+        fields = '__all__'
+
+
 class EntrySerializer(serializers.ModelSerializer):
     class Meta:
         model = Entry

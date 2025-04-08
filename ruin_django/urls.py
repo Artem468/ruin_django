@@ -37,7 +37,7 @@ urlpatterns = [
             }),
     re_path(r'^guides/?$', views.front, name='front'),
     re_path(r'^gallery/?$', views.front, name='front'),
-    re_path(r'^tour/<int:id>?$', views.front, name='front'),
+    re_path(r'^tour/(?P<id>\d+)/?$', views.front, name='front'),
     path(r'', views.front, name='front'),
 
 ]

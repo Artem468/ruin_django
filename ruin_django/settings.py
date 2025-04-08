@@ -57,7 +57,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'ruin_django.urls'
 
-FRONTEND = os.path.join(BASE_DIR, 'ruin_web', 'dist')
+FRONTEND = os.path.join(BASE_DIR, 'ruin_keepers', 'KonkursProject', 'dist')
 
 TEMPLATES = [
     {

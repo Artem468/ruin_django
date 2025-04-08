@@ -6,7 +6,8 @@ from django.utils import timezone
 from rest_framework.decorators import api_view
 
 from core.models import Tour, Point, ScheduledTour
-from core.serializers import TourSerializer, PointSerializer, EntrySerializer, ScheduledTourWithTourDataSerializer
+from core.serializers import TourSerializer, PointSerializer, EntrySerializer, ScheduledTourWithTourDataSerializer, \
+    TourWithPointsDataSerializer
 
 
 def front(request, *args, **kwargs):
@@ -53,7 +54,7 @@ def get_scheduled_tours(request):
 def get_tour_by_id(request, tour_id):
     try:
         tour = Tour.objects.get(id=tour_id)
-        serializer = TourSerializer(tour)
+        serializer = TourWithPointsDataSerializer(tour)
         return JsonResponse({
             "status": "ok",
             "data": serializer.data,
