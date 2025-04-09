@@ -35,6 +35,7 @@ urlpatterns = [
                     'assets'
                 )
             }),
+    re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
     re_path(r'^guides/?$', views.front, name='front'),
     re_path(r'^gallery/?$', views.front, name='front'),
     re_path(r'^tour/(?P<id>\d+)/?$', views.front, name='front'),
